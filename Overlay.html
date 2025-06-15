@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Overlay VIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    #vipText {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #000; /* Bisa diubah ke putih (#fff) kalau teks hitam gak terlihat */
+      font-size: 30px;
+      font-weight: 700;
+      text-align: center;
+      z-index: 3;
+      width: 90%;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      transition: opacity 0.5s ease;
+      background: none;       /* pastikan tidak ada background */
+      box-shadow: none;       /* pastikan tidak ada bayangan */
+      text-shadow: none;      /* Hapus efek glow atau bayangan teks */
+    }
+  </style>
+</head>
+<body>
+
+  <div id="vipText"></div>
+
+  <script>
+    const texts = [
+      "Yuk buat kalian yang masih Stuck <br> Belum Glory? atau belum Imo?",
+      "Join Mabar VIP 7k/Match <br> Mainin Akun 70k Sampai End Live",
+      "Kalian WS ? Host Senang xixixi<br> Sung Cek Link di Bio Sekarang Juga!!!"
+    ];
+
+    let i = 0;
+    const textDiv = document.getElementById("vipText");
+    textDiv.innerHTML = texts[0];
+
+    setInterval(() => {
+      textDiv.style.opacity = 0;
+      setTimeout(() => {
+        i = (i + 1) % texts.length;
+        textDiv.innerHTML = texts[i];
+        textDiv.style.opacity = 1;
+      }, 500);
+    }, 3000);
+  </script>
+
+</body>
+</html>
